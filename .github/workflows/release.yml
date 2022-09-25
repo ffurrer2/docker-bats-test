@@ -59,9 +59,9 @@ jobs:
           org.opencontainers.image.base.digest=${{ env.IMAGE_BASE_DIGEST }}
         tags: |
           type=ref,event=branch
-          type=semver,pattern={{version}}
-          type=semver,pattern={{major}}.{{minor}}
-          type=semver,pattern={{major}}
+          type=semver,pattern={{major}},priority=500
+          type=semver,pattern={{major}}.{{minor}},priority=400
+          type=semver,pattern={{version}},priority=300
 
     - name: Build Docker image
       uses: docker/build-push-action@v3
